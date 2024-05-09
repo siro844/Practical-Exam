@@ -1,5 +1,7 @@
+package DAA.backtracking;
+
 import java.util.*;
-public class Main{
+public class hamiltonian{
     public static void addNode(int[][] graph, int x,int y)
     {
         graph[x][y]=1;

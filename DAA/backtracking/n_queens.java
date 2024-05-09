@@ -1,5 +1,6 @@
+package DAA.backtracking;
 
-public class Main{
+public class n_queens{
     public static void solveNQueens(int n) {
         int mat[][]=new int[n][n];
         int row[]=new int[n]; //Hash fxn i
