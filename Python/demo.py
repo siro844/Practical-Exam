@@ -68,6 +68,22 @@ def click():
 # text.grid(row=3,column=4)
 
 
+# KEY Events
+
+
+# window.bind(event,function)
+# def doSomething(event):
+#     #print("You pressed :" + event.keysym)
+#     label.config(text=event.keysym)
+# window.bind("<Key>",doSomething)
+# label=Label()
+# label.pack()
+
+
+# Mouse Events
+def mouseClick(event):
+    print("You did")
+window.bind("<Button-1>",mouseClick)
 
 #Places window on screen
 window.mainloop()
