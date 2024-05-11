@@ -1,3 +1,5 @@
+package DAA.Greedy;
+
 import java.util.Arrays;
 
 public class ActivitySelection {
