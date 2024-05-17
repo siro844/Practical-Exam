@@ -1,50 +1,59 @@
-package DAA.Greedy;
+import java.util.*;
 
-import java.util.Arrays;
+class Activity {
+    int start, finish;
 
-public class ActivitySelection {
-    // Sort the activities according to their finishing time
-    // Select the first activity from the sorted array and print it
-    // Do the following for the remaining activities in the sorted array
-    // If the start time of this activity is greater
-    // than or equal to the finish time of the previously
-    /// selected activity then select this activity and print it
-    public static void main(String[] args) {
-        int[] s = { 1, 3, 0, 5, 8, 5 };
-        int[] f = { 2, 4, 6, 7, 9, 9 };
-        int n = s.length;
-        printMaxActivities(s, f, n);
-
+    public Activity(int start, int finish) {
+        this.start = start;
+        this.finish = finish;
     }
+}
 
-    public static void printMaxActivities(int s[], int f[],
-            int n) {
-        // Create an array of indices
-        Integer[] indices = new Integer[n];
-        for (int i = 0; i < n; i++) {
-            indices[i] = i;
+class ActivitySelection {
+    public static List<Activity> selectActivities(Activity[] activities) {
+        List<Activity> selectedActivities = new ArrayList<>();
+
+        // Sort activities based on finish time
+        Arrays.sort(activities, Comparator.comparingInt((Activity a) -> a.finish));
+
+        // Select the first activity
+        selectedActivities.add(activities[0]);
+
+        // Iterate through the remaining activities
+        int lastSelectedActivityIndex = 0;
+        for (int i = 1; i < activities.length; i++) {
+            if (activities[i].start >= activities[lastSelectedActivityIndex].finish) {
+                selectedActivities.add(activities[i]);
+                lastSelectedActivityIndex = i;
+            }
         }
 
-        // Sort the array of indices according to the finish times
-        Arrays.sort(indices, (i, j) -> Integer.compare(f[i], f[j]));
+        return selectedActivities;
+    }
 
-        int i, j;
+    public static void main(String[] args) {
+        // Create an array of activities
+        Activity[] activities = {
+            new Activity(1, 4),
+            new Activity(3, 5),
+            new Activity(0, 6),
+            new Activity(5, 7),
+            new Activity(3, 8),
+            new Activity(5, 9),
+            new Activity(6, 10),
+            new Activity(8, 11),
+            new Activity(8, 12),
+            new Activity(2, 13),
+            new Activity(12, 14)
+        };
 
-        System.out.print("Following activities are selected : ");
+        // Select activities
+        List<Activity> selectedActivities = selectActivities(activities);
 
-        // The first activity always gets selected
-        i = indices[0];
-        System.out.print(i + " ");
-
-        // Consider rest of the activities
-        for (j = 1; j < n; j++) {
-            // If this activity has start time greater than or
-            // equal to the finish time of previously selected
-            // activity, then select it
-            if (s[indices[j]] >= f[i]) {
-                System.out.print(indices[j] + " ");
-                i = indices[j];
-            }
+        // Print the selected activities
+        System.out.println("Selected Activities:");
+        for (Activity activity : selectedActivities) {
+            System.out.println("[" + activity.start + ", " + activity.finish + "]");
         }
     }
 }

@@ -1,3 +1,4 @@
+package DAA.Greedy;
 
 import java.util.*;
 class Graph
@@ -21,7 +22,7 @@ class Graph
         }
         void findShort(int src)
         {
-            PriorityQueue<Couple> pq=new PriorityQueue<>(V,Comparator.comparingInt(c->c.him));
+            PriorityQueue<Couple> pq=new PriorityQueue<>(Comparator.comparingInt(c->c.him));
             int[] dist=new int[V];
             Arrays.fill(dist,Integer.MAX_VALUE);
             dist[src]=0;
@@ -56,7 +57,7 @@ class Graph
         }
     }
     
-public class Main
+public class djikstra
 {
 	public static void main(String[] args) {
 		int V=9;

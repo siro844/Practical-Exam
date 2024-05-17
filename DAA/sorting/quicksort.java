@@ -13,7 +13,7 @@ public class quicksort{
     }
 
     // The partition method
-    private static int partition(int[] arr, int low, int high) {
+    private static int partition(int[] arr, int low, int high){
         // Choose the pivot element
         int pivot=arr[high];
         // Index for smaller element

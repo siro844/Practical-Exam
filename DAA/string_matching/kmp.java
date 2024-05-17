@@ -19,11 +19,11 @@ public class kmp {
             {
                 if(lis>0)
                 {
-                    lis=arr[lis-1];
+                    lis=arr[lis-1]; //backtrack to the last lis value
                 }
                 else
                 {
-                    arr[i]=lis;
+                    arr[i]=lis; //lis is 0 here
                     i++;
                 }
             }

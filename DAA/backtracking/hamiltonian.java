@@ -9,7 +9,7 @@ public class hamiltonian{
     }
     public static boolean isSafe(int x,int i,int[][] graph,int[] visit)
     {
-        if(graph[visit[x-1]][i]==0)return false;
+        if(graph[visit[x-1]][i]==0)return false;    //There isnt a node only
         for(int j:visit)
         {
             if(j==i)return false;

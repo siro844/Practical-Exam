@@ -1,4 +1,3 @@
-package DAA.dynamic;
 
 public class MatrixChainMultiplication {
     // Function to find the minimum number of multiplications needed for matrix chain multiplication
@@ -16,7 +15,7 @@ public class MatrixChainMultiplication {
                 int j = i + L - 1;
                 m[i][j] = Integer.MAX_VALUE;
                 // Try all possible split points and find the one that minimizes the number of multiplications
-                for (int k = i; k <= j - 1; k++) {
+                for (int k = i; k < j; k++) {
                     int q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
                     if (q < m[i][j]) {
                         m[i][j] = q;
